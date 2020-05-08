@@ -13,7 +13,7 @@ app = Flask(__name__)
 def main():
     return render_template('index.html',
 
-                           tours=tours_dict.values(),
+                           tours=list(tours_dict.values()),
                            departures=departures,
 
                            title=title,
