@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-from data import tours, departures
+from data import tours, departures, title, subtitle, description
 
 tours_dict = tours.copy()
 for id_, tour in tours_dict.items():
@@ -11,7 +11,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return render_template('index.html', tours=tours_dict.values())
+    return render_template('index.html',
+
+                           tours=tours_dict.values(),
+                           departures=departures,
+
+                           title=title,
+                           subtitle=subtitle,
+                           description=description
+
+                           )
 
 
 @app.route('/departures/<departure>/')
@@ -38,4 +47,4 @@ def render_tour(id):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
