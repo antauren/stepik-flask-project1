@@ -19,7 +19,6 @@ def main():
                            title=title,
                            subtitle=subtitle,
                            description=description
-
                            )
 
 
@@ -31,10 +30,7 @@ def render_departures(departure):
 
                            tours=request_tours,
                            departures=departures,
-                           departure=departures[departure],
-
-                           price_list=[tour['price'] for tour in request_tours],
-                           nights_list=[tour['nights'] for tour in request_tours]
+                           departure=departures[departure]
                            )
 
 
@@ -43,8 +39,9 @@ def render_tour(id):
     return render_template('tour.html',
 
                            tour=tours_dict[id],
-                           departures=departures)
+                           departures=departures
+                           )
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

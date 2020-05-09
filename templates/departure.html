@@ -3,7 +3,14 @@
 {% block main %}
   <main class="container mt-3">
     <h1 class="display-5 mt-4">Летим из {{ departure[3:] }}</h1>
-    <p class="mb-4">Найдено {{ tours|length  }} туров, от {{ price_list|min }} до {{ price_list|max }} и от {{ nights_list|min }} ночей до {{ nights_list|max }} ночей</p>
+
+    {% set max_price = (tours | max(attribute='price')).price %}
+    {% set min_price = (tours | min(attribute='price')).price %}
+
+    {% set max_nights = (tours | max(attribute='nights')).nights %}
+    {% set min_nights = (tours | min(attribute='nights')).nights %}
+
+    <p class="mb-4">Найдено {{ tours|length  }} туров, от {{ min_price }} до {{ max_price }} и от {{ min_nights }} ночей до {{ max_nights }} ночей</p>
     <!-- CARDS -->
     <div class="row mt-5">
 
