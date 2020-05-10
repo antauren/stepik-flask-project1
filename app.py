@@ -18,7 +18,8 @@ def main():
 
                            title=title,
                            subtitle=subtitle,
-                           description=description
+                           description=description,
+                           tour=False
                            )
 
 
@@ -30,7 +31,8 @@ def render_departures(departure):
 
                            tours=request_tours,
                            departures=departures,
-                           departure=departures[departure]
+                           departure=departures[departure],
+                           tour=False
                            )
 
 

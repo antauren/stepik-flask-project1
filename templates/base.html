@@ -26,7 +26,7 @@
         {% for departure, text in departures.items() %}
           {% set href = "/departures/{}/".format(departure) %}
 
-          <li class="nav-item {% if request.path == href %}active{% endif %}">
+          <li class="nav-item {% if request.path == href or tour.departure == departure %}active{% endif %}">
             <a class="nav-link" href="{{ href }}">{{ text }}</a>
           </li>
 
