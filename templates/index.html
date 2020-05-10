@@ -21,7 +21,7 @@
               <h2 class="h5 card-title">{{ tour.title }}</h2>
               <p class="card-text">{{ tour.description | truncate(100) }}</p>
               <a href="/tours/{{ tour.id }}/"
-                 class="btn btn-sm btn-primary">{{ tour.country }} {{ tour.price }} {{ tour.stars }}*</a>
+                 class="btn btn-sm btn-primary">{{ tour.country }} {{ tour.price | format_price }} {{ tour.stars }}*</a>
             </div>
           </div>
         </div>
