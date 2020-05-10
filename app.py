@@ -45,5 +45,13 @@ def render_tour(id):
                            )
 
 
+@app.template_filter('format_price')
+def format_price(value):
+    if value is None or not isinstance(value, int):
+        return value
+
+    return '{:,d} ₽'.format(value).replace(',', ' ')
+
+
 if __name__ == '__main__':
     app.run()
